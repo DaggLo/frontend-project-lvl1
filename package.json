@@ -1,0 +1,25 @@
+{
+  "name": "practice-package-brain-games",
+  "version": "1.0.0",
+  "description": "My practice project #1 for the Hexlet.io FE JS course.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaggLo/frontend-project-lvl1.git"
+  },
+  "keywords": [
+    "Hexlet",
+    "Project",
+    "Brain",
+    "Games"
+  ],
+  "author": "DaggLo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DaggLo/frontend-project-lvl1/issues"
+  },
+  "homepage": "https://github.com/DaggLo/frontend-project-lvl1#readme"
+}
