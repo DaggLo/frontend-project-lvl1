@@ -16,10 +16,17 @@ Developed and tested on Ubuntu 16.04.6 LTS, NODE version 13.2.0 and NPM version 
 While this is a practice package it is not meant to be published into NPM repository. Due to that follow these steps to install:
 1. Download this repo.
 2. Run inside dowloaded directory: `npm install` or `make install` (if you have `make`).
-3. Run `npx babel-node src/bin/brain-games.js` or `make start`.
+3. Run `npm run build` to build the app.
+4. Run `sudo npm link` to install the app globally.
+
+<a href="https://asciinema.org/a/XpFytfUP8BaM6MB8syTp4haF7" target="_blank"><img src="https://asciinema.org/a/XpFytfUP8BaM6MB8syTp4haF7.svg" alt="Ascinema of the intallation process" width="200px"/></a>
 
 ## Usage
+Run `brain-even` in your terminal.
+
 Just type answers to the questions into you terminal after program starts.
+
+<a href="https://asciinema.org/a/4Slbojfj9j4LFi3VChTANEPEC" target="_blank"><img src="https://asciinema.org/a/4Slbojfj9j4LFi3VChTANEPEC.svg" alt="Ascinema of the usage process" width="200px"/></a>
 
 The package uses [readlineSync](https://github.com/anseki/readline-sync) under the hood.
 So for more advanced understanding of what you can do here feel free to checkout it's [official documentatin](https://github.com/anseki/readline-sync/blob/master/README.md).
