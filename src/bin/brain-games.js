@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-import main from '..';
+import engine from '..';
 
-console.log('Welcome to the Brain Games!');
-
-main();
+engine();
