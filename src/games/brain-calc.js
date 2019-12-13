@@ -5,7 +5,6 @@ export default () => {
   const operand1 = random();
   const operand2 = random();
   const operator = random() / 33;
-  console.log(operator);
 
   let question;
   let correctAnswer;
