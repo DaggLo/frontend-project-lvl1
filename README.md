@@ -25,6 +25,7 @@ While this is a practice package it is not meant to be published into NPM reposi
 Run commands from the list below in your terminal to try the game you want. A short description will be displayed for each game.
 - `brain-even`
 - `brain-calc`
+- `brain-gcd`
 
 Just type answers to the questions into the terminal after program starts. You must give the right answer three times in a row to win.
 
