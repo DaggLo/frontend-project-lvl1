@@ -2,6 +2,7 @@ import readlineSync from 'readline-sync';
 import { car, cdr } from '@hexlet/pairs';
 import brainEven from './games/brain-even';
 import brainCalc from './games/brain-calc';
+import brainGcd from './games/brain-gcd';
 
 export default (gameType) => {
   console.log('\nWelcome to the Brain Games!');
@@ -12,6 +13,10 @@ export default (gameType) => {
 
     case 'calc':
       console.log('What is the result of the expression?');
+      break;
+
+    case 'gcd':
+      console.log('Find the greatest common divisor of given numbers.');
       break;
 
     default:
@@ -47,6 +52,10 @@ export default (gameType) => {
 
     case 'calc':
       result = game(maxRounds, brainCalc);
+      break;
+
+    case 'gcd':
+      result = game(maxRounds, brainGcd);
       break;
 
     default:
