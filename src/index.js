@@ -3,6 +3,7 @@ import { car, cdr } from '@hexlet/pairs';
 import brainEven from './games/brain-even';
 import brainCalc from './games/brain-calc';
 import brainGcd from './games/brain-gcd';
+import brainProgr from './games/brain-progression';
 
 export default (gameType) => {
   console.log('\nWelcome to the Brain Games!');
@@ -17,6 +18,10 @@ export default (gameType) => {
 
     case 'gcd':
       console.log('Find the greatest common divisor of given numbers.');
+      break;
+
+    case 'progression':
+      console.log('What number is missing in the progression?');
       break;
 
     default:
@@ -56,6 +61,10 @@ export default (gameType) => {
 
     case 'gcd':
       result = game(maxRounds, brainGcd);
+      break;
+
+    case 'progression':
+      result = game(maxRounds, brainProgr);
       break;
 
     default:
