@@ -27,6 +27,7 @@ Run commands from the list below in your terminal to try the game you want. A sh
 - `brain-calc`
 - `brain-gcd`
 - `brain-progression`
+- `brain-prime`
 
 Just type answers to the questions into the terminal after program starts. You must give the right answer three times in a row to win.
 
