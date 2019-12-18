@@ -1,10 +1,10 @@
 import { cons } from '@hexlet/pairs';
 
 export default () => {
-  const random = () => Math.floor(Math.random() * 100);
+  const random = () => Math.floor(Math.random() * 100); // 0 - 99
   const operand1 = random();
   const operand2 = random();
-  const operator = random() / 33;
+  const operator = random() / 33; // 0 - 3
 
   let question;
   let correctAnswer;
