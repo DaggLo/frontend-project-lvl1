@@ -1,10 +1,15 @@
 import { cons } from '@hexlet/pairs';
 
+import random from '../utils';
+
 export default () => {
-  const random = () => Math.floor(Math.random() * 100); // 0 - 99
-  const operand1 = random();
-  const operand2 = random();
-  const operator = random() / 33; // 0 - 3
+  // These values for the random funcntion.
+  const beginValue = 0;
+  const endValue = 100;
+
+  const operand1 = random(beginValue)(endValue); // 0 - 99
+  const operand2 = random(beginValue)(endValue);
+  const operator = random(beginValue)(endValue) / 33; // 0 - 3
 
   let question;
   let correctAnswer;

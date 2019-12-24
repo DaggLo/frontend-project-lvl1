@@ -1,11 +1,16 @@
 import { cons, car, cdr } from '@hexlet/pairs';
 
+import random from '../utils';
+
 export default () => {
-  const random = () => Math.floor(Math.random() * 10) + 1; // 1 - 10
-  const startElem = random();
-  const hiddenElemPos = random();
+  // These values for the random funcntion.
+  const beginValue = 1;
+  const endValue = 10;
+
+  const startElem = random(beginValue)(endValue);
+  const hiddenElemPos = random(beginValue)(endValue);
   const progression = (() => {
-    const diff = random();
+    const diff = random(beginValue)(endValue);
     let resultStr = hiddenElemPos === 1 ? '..' : `${startElem}`;
     let resultElem = startElem;
     let acc = startElem;
