@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import engine from '..';
+import { brainGcd } from '..';
 
-engine('gcd');
+brainGcd();

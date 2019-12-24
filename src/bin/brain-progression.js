@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import engine from '..';
+import { brainProgr } from '..';
 
-engine('progression');
+brainProgr();

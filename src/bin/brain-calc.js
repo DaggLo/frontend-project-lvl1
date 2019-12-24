@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import engine from '..';
+import { brainCalc } from '..';
 
-engine('calc');
+brainCalc();

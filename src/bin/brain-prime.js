@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import engine from '..';
+import { brainPrime } from '..';
 
-engine('prime');
+brainPrime();
