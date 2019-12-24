@@ -1,6 +1,6 @@
 import { cons } from '@hexlet/pairs';
 
-import random, { gcd } '../utils';
+import random, { gcd } from '../utils';
 
 export default () => {
   // These values for the random funcntion.
