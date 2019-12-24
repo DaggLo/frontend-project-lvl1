@@ -9,6 +9,8 @@ export default () => {
 
   const startElem = random(beginValue)(endValue);
   const hiddenElemPos = random(beginValue)(endValue);
+  const progressionLength = 10;
+
   const progression = (() => {
     const diff = random(beginValue)(endValue);
     let resultStr = hiddenElemPos === 1 ? '..' : `${startElem}`;
@@ -16,7 +18,7 @@ export default () => {
     let acc = startElem;
     let i = 2;
 
-    while (i <= 10) {
+    while (i <= progressionLength) {
       acc += diff;
       resultStr += i === hiddenElemPos ? ' ..' : ` ${acc}`;
       if (i === hiddenElemPos) {
