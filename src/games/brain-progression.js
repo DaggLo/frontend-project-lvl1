@@ -29,7 +29,7 @@ export default () => {
     return cons(resultStr, resultElem);
   })();
 
-  const question = `${car(progression)}`;
+  const question = car(progression);
   const correctAnswer = `${cdr(progression)}`;
 
   return cons(question, correctAnswer);
