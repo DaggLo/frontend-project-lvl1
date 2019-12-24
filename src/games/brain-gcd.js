@@ -1,6 +1,6 @@
 import { cons } from '@hexlet/pairs';
 
-import random from '../utils';
+import random, { gcd } '../utils';
 
 export default () => {
   // These values for the random funcntion.
@@ -26,19 +26,7 @@ export default () => {
   })(operand1);
 
   const question = `${operand1} ${operand2}`;
-  const correctAnswer = `${((x, y) => {
-    let a = x > y ? x : y;
-    let b = x < y ? x : y;
-
-    let result = b;
-
-    while (a % b !== 0) {
-      result = a % b;
-      a = b;
-      b = result;
-    }
-    return result;
-  })(operand1, operand2)}`;
+  const correctAnswer = `${gcd(operand1, operand2)}`;
 
   return cons(question, correctAnswer);
 };
