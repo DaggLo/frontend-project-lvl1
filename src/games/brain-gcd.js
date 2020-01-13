@@ -1,6 +1,20 @@
 import { cons } from '@hexlet/pairs';
 
-import random, { gcd } from '../utils';
+import random from '../utils';
+
+const gcd = (x, y) => {
+  let a = x > y ? x : y;
+  let b = x < y ? x : y;
+
+  let result = b;
+
+  while (a % b !== 0) {
+    result = a % b;
+    a = b;
+    b = result;
+  }
+  return result;
+};
 
 export default () => {
   // These values for the random funcntion.
