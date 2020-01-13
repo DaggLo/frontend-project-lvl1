@@ -17,7 +17,7 @@ const isPrime = (num) => {
 };
 
 export default () => {
-  // These values for the random funcntion.
+  // These values are for the random funcntion.
   const beginValue = 1;
   const endValue = 1000;
 
