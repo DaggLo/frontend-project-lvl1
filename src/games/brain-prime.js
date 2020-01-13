@@ -7,7 +7,7 @@ export default () => {
   const beginValue = 1;
   const endValue = 1000;
 
-  const num = random(beginValue)(endValue);
+  const num = random(beginValue, endValue);
 
   const question = `${num}`;
   const correctAnswer = `${isPrime(num) ? 'yes' : 'no'}`;

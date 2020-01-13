@@ -7,9 +7,9 @@ export default () => {
   const beginValue = 0;
   const endValue = 100; // 0 - 99
 
-  const operand1 = random(beginValue)(endValue);
-  const operand2 = random(beginValue)(endValue);
-  const operator = random(beginValue)(endValue) / 33; // 0 - 3
+  const operand1 = random(beginValue, endValue);
+  const operand2 = random(beginValue, endValue);
+  const operator = random(beginValue, endValue) / 33; // 0 - 3
 
   let question;
   let correctAnswer;

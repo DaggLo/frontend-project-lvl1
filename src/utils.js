@@ -12,7 +12,7 @@ const isPrime = (num) => {
   return true;
 };
 
-const random = (beginValue) => (endValue) => Math.floor(Math.random() * endValue) + beginValue;
+const random = (beginValue, endValue) => Math.floor(Math.random() * endValue) + beginValue;
 
 const gcd = (x, y) => {
   let a = x > y ? x : y;

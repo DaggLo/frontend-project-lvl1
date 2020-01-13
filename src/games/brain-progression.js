@@ -7,12 +7,12 @@ export default () => {
   const beginValue = 1;
   const endValue = 10;
 
-  const startElem = random(beginValue)(endValue);
-  const hiddenElemPos = random(beginValue)(endValue);
+  const startElem = random(beginValue, endValue);
+  const hiddenElemPos = random(beginValue, endValue);
   const progressionLength = 10;
 
   const progression = (() => {
-    const diff = random(beginValue)(endValue);
+    const diff = random(beginValue, endValue);
     let resultStr = hiddenElemPos === 1 ? '..' : `${startElem}`;
     let resultElem = startElem;
     let acc = startElem;
