@@ -1,17 +1,8 @@
-import engine from './engine';
+import readlineSync from 'readline-sync';
 
-const brainGame = () => engine();
-const brainEven = () => engine('even');
-const brainCalc = () => engine('calc');
-const brainGcd = () => engine('gcd');
-const brainProgr = () => engine('progression');
-const brainPrime = () => engine('prime');
+export default () => {
+  console.log('\nWelcome to the Brain Games!');
 
-export {
-  brainGame as default,
-  brainEven,
-  brainCalc,
-  brainGcd,
-  brainProgr,
-  brainPrime,
+  const userName = readlineSync.question('\nMay I have your name? ');
+  console.log(`Hello, ${userName}!\n`);
 };
