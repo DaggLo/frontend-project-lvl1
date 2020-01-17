@@ -1,46 +1,46 @@
 import { cons, car, cdr } from '@hexlet/pairs';
 
 import random from '../utils';
-
 import engine from '../engine';
 
-export default () => {
-  const gameDesc = 'What number is missing in the progression?';
-  const maxRounds = 3;
+const gameDesc = 'What number is missing in the progression?';
+const maxRounds = 3;
 
-  const game = () => {
-    // These values are for the random funcntion.
-    const beginValue = 1;
-    const endValue = 10;
+// These values are for the random funcntion.
+const beginValue = 1;
+const endValue = 10;
 
-    const startElem = random(beginValue, endValue);
-    const hiddenElemPos = random(beginValue, endValue);
-    const progressionLength = 10;
+const progression = () => {
+  const startElem = random(beginValue, endValue);
+  const hiddenElemPos = random(beginValue, endValue);
+  const progressionLength = 10;
+  const diff = random(beginValue, endValue);
 
-    const progression = (() => {
-      const diff = random(beginValue, endValue);
-      let resultStr = hiddenElemPos === 1 ? '..' : `${startElem}`;
-      let resultElem = startElem;
-      let acc = startElem;
-      let i = 2;
+  let resultStr = hiddenElemPos === 1 ? '..' : `${startElem}`;
+  let resultElem = startElem;
+  let acc = startElem;
+  let i = 2;
 
-      while (i <= progressionLength) {
-        acc += diff;
-        resultStr += i === hiddenElemPos ? ' ..' : ` ${acc}`;
-        if (i === hiddenElemPos) {
-          resultElem = acc;
-        }
-        i += 1;
-      }
-      return cons(resultStr, resultElem);
-    })();
+  while (i <= progressionLength) {
+    acc += diff;
+    resultStr += i === hiddenElemPos ? ' ..' : ` ${acc}`;
+    if (i === hiddenElemPos) {
+      resultElem = acc;
+    }
+    i += 1;
+  }
 
-    const question = car(progression);
-    const correctAnswer = `${cdr(progression)}`;
-    const data = cons(question, correctAnswer);
-
-    return data;
-  };
-
-  return engine(gameDesc, maxRounds, game);
+  return cons(resultStr, resultElem);
 };
+
+const game = () => {
+  const newProgr = progression(beginValue, endValue);
+
+  const question = car(newProgr);
+  const correctAnswer = `${cdr(newProgr)}`;
+  const data = cons(question, correctAnswer);
+
+  return data;
+};
+
+export default () => engine(gameDesc, maxRounds, game);
