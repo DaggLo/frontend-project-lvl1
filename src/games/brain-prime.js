@@ -9,7 +9,8 @@ const isPrime = (num) => {
     return false;
   }
 
-  for (let i = 2; i < num; i += 1) {
+  const halfOfNum = num / 2;
+  for (let i = 2; i <= halfOfNum; i += 1) {
     if (num % i === 0) {
       return false;
     }
