@@ -6,7 +6,10 @@ export default (data, f) => {
   const maxRounds = cdr(data);
 
   const gameLoop = (counter) => {
-    if (counter === 0) return counter;
+    if (counter === 0) {
+      console.log(`Congratulations, ${userName}!\n`);
+      return;
+    }
 
     const gameData = f();
     const question = car(gameData);
@@ -14,19 +17,22 @@ export default (data, f) => {
     const userAnswer = readlineSync.question(`Question: ${question}\nYour answer: `);
 
     if (userAnswer.toLowerCase() !== correctAnswer) {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-      return counter;
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!\n`);
+      return;
     }
 
     console.log('Correct!');
-    return gameLoop(counter - 1);
+    gameLoop(counter - 1);
   };
 
-  const result = gameLoop(maxRounds);
+  // const result = gameLoop(maxRounds);
+  gameLoop(maxRounds);
 
+/*
   if (result === 0) {
     console.log(`Congratulations, ${userName}!\n`);
   } else {
     console.log(`Let's try again, ${userName}!\n`);
   }
+*/
 };
