@@ -1,9 +1,21 @@
 import readlineSync from 'readline-sync';
-import { car, cdr } from '@hexlet/pairs';
+import { cons, car, cdr } from '@hexlet/pairs';
 
-export default (data, f) => {
-  const userName = car(data);
-  const maxRounds = cdr(data);
+const init = (msg, rounds) => {
+  console.log(`\nWelcome to the Brain Games!\n${msg}`);
+
+  const userName = readlineSync.question('\nMay I have your name? ');
+  console.log(`Hello, ${userName}!\n`);
+
+  const maxRounds = rounds;
+
+  return cons(userName, maxRounds);
+};
+
+export default (msg, rounds = 3, f) => {
+  const initData = init(msg, rounds);
+  const userName = car(initData);
+  const maxRounds = cdr(initData);
 
   const gameLoop = (counter) => {
     if (counter === 0) {
@@ -25,14 +37,5 @@ export default (data, f) => {
     gameLoop(counter - 1);
   };
 
-  // const result = gameLoop(maxRounds);
   gameLoop(maxRounds);
-
-/*
-  if (result === 0) {
-    console.log(`Congratulations, ${userName}!\n`);
-  } else {
-    console.log(`Let's try again, ${userName}!\n`);
-  }
-*/
 };

@@ -1,7 +1,6 @@
 import { cons } from '@hexlet/pairs';
 
 import random from '../utils';
-import init from '../init';
 import engine from '../engine';
 
 const gcd = (x, y) => {
@@ -20,7 +19,7 @@ const gcd = (x, y) => {
 
 export default () => {
   const gameDesc = 'Find the greatest common divisor of given numbers.';
-  const initData = init(gameDesc);
+  const maxRounds = 3;
 
   const game = () => {
     // These values are for the random funcntion.
@@ -53,5 +52,5 @@ export default () => {
     return data;
   };
 
-  return engine(initData, game);
+  return engine(gameDesc, maxRounds, game);
 };

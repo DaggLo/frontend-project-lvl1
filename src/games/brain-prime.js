@@ -1,7 +1,6 @@
 import { cons } from '@hexlet/pairs';
 
 import random from '../utils';
-import init from '../init';
 import engine from '../engine';
 
 const isPrime = (num) => {
@@ -21,7 +20,7 @@ const isPrime = (num) => {
 
 export default () => {
   const gameDesc = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  const initData = init(gameDesc);
+  const maxRounds = 3;
 
   const game = () => {
     // These values are for the random funcntion.
@@ -37,5 +36,5 @@ export default () => {
     return data;
   };
 
-  return engine(initData, game);
+  return engine(gameDesc, maxRounds, game);
 };

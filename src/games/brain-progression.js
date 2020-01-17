@@ -1,12 +1,12 @@
 import { cons, car, cdr } from '@hexlet/pairs';
 
 import random from '../utils';
-import init from '../init';
+
 import engine from '../engine';
 
 export default () => {
   const gameDesc = 'What number is missing in the progression?';
-  const initData = init(gameDesc);
+  const maxRounds = 3;
 
   const game = () => {
     // These values are for the random funcntion.
@@ -42,5 +42,5 @@ export default () => {
     return data;
   };
 
-  return engine(initData, game);
+  return engine(gameDesc, maxRounds, game);
 };
