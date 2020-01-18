@@ -18,6 +18,4 @@ const game = () => {
   return data;
 };
 
-
 export default () => engine(gameDesc, maxRounds, game);
-
