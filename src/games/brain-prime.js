@@ -1,12 +1,12 @@
 import { cons } from '@hexlet/pairs';
 
-import random from '../utils';
-import engine from '../engine';
+import getRandomValue from '../utils';
+import runGameEngine from '../engine';
 
-const gameDesc = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-const maxRounds = 3;
+const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const roundsCount = 3;
 
-// These values are for the random funcntion.
+// These values are for the getRandomValue funcntion.
 const beginValue = 1;
 const endValue = 1000;
 
@@ -25,8 +25,8 @@ const isPrime = (num) => {
   return true;
 };
 
-const game = () => {
-  const num = random(beginValue, endValue);
+const runGame = () => {
+  const num = getRandomValue(beginValue, endValue);
 
   const question = `${num}`;
   const correctAnswer = `${isPrime(num) ? 'yes' : 'no'}`;
@@ -35,4 +35,4 @@ const game = () => {
   return data;
 };
 
-export default () => engine(gameDesc, maxRounds, game);
+export default () => runGameEngine(gameDescription, roundsCount, runGame);

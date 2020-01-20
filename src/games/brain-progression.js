@@ -1,20 +1,20 @@
 import { cons, car, cdr } from '@hexlet/pairs';
 
-import random from '../utils';
-import engine from '../engine';
+import getRandomValue from '../utils';
+import runGameEngine from '../engine';
 
-const gameDesc = 'What number is missing in the progression?';
-const maxRounds = 3;
+const gameDescription = 'What number is missing in the progression?';
+const roundsCount = 3;
 
-// These values are for the random funcntion.
+// These values are for the getRandomValue funcntion.
 const beginValue = 1;
 const endValue = 10;
 
 const progression = () => {
-  const startElem = random(beginValue, endValue);
-  const hiddenElemPos = random(beginValue, endValue);
+  const startElem = getRandomValue(beginValue, endValue);
+  const hiddenElemPos = getRandomValue(beginValue, endValue);
   const progressionLength = 10;
-  const diff = random(beginValue, endValue);
+  const diff = getRandomValue(beginValue, endValue);
 
   let resultStr = hiddenElemPos === 1 ? '..' : `${startElem}`;
   let resultElem = startElem;
@@ -33,7 +33,7 @@ const progression = () => {
   return cons(resultStr, resultElem);
 };
 
-const game = () => {
+const runGame = () => {
   const newProgr = progression(beginValue, endValue);
 
   const question = car(newProgr);
@@ -43,4 +43,4 @@ const game = () => {
   return data;
 };
 
-export default () => engine(gameDesc, maxRounds, game);
+export default () => runGameEngine(gameDescription, roundsCount, runGame);

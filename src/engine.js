@@ -7,17 +7,17 @@ const init = (msg, rounds) => {
   const userName = readlineSync.question('\nMay I have your name? ');
   console.log(`Hello, ${userName}!\n`);
 
-  const maxRounds = rounds;
+  const roundsCount = rounds;
 
-  return cons(userName, maxRounds);
+  return cons(userName, roundsCount);
 };
 
 export default (msg, rounds = 3, f) => {
   const initData = init(msg, rounds);
   const userName = car(initData);
-  const maxRounds = cdr(initData);
+  const roundsCount = cdr(initData);
 
-  const gameLoop = (counter) => {
+  const runGameLoop = (counter) => {
     if (counter === 0) {
       console.log(`Congratulations, ${userName}!\n`);
       return;
@@ -34,8 +34,8 @@ export default (msg, rounds = 3, f) => {
     }
 
     console.log('Correct!');
-    gameLoop(counter - 1);
+    runGameLoop(counter - 1);
   };
 
-  gameLoop(maxRounds);
+  runGameLoop(roundsCount);
 };

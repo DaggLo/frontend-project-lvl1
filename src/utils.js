@@ -1,3 +1,3 @@
-const random = (beginValue, endValue) => Math.floor(Math.random() * endValue) + beginValue;
+const getRandomValue = (beginValue, endValue) => Math.floor(Math.random() * endValue) + beginValue;
 
-export default random;
+export default getRandomValue;

@@ -1,20 +1,20 @@
 import { cons } from '@hexlet/pairs';
 
-import random from '../utils';
-import engine from '../engine';
+import getRandomValue from '../utils';
+import runGameEngine from '../engine';
 
-const gameDesc = 'What is the result of the expression?';
-const maxRounds = 3;
+const gameDescription = 'What is the result of the expression?';
+const roundsCount = 3;
 
-// These values are for the random funcntion.
+// These values are for the getRandomValue funcntion.
 const beginValue = 0;
 const endValue = 100; // 0 - 99
 const operations = '+-*';
 
-const game = () => {
-  const operand1 = random(beginValue, endValue);
-  const operand2 = random(beginValue, endValue);
-  const operator = operations[Math.floor(random(beginValue, endValue) / 34)]; // 0 - 2
+const runGame = () => {
+  const operand1 = getRandomValue(beginValue, endValue);
+  const operand2 = getRandomValue(beginValue, endValue);
+  const operator = operations[Math.floor(getRandomValue(beginValue, endValue) / 34)]; // 0 - 2
 
   const question = `${operand1} ${operator} ${operand2}`;
   let correctAnswer;
@@ -43,4 +43,4 @@ const game = () => {
   return data;
 };
 
-export default () => engine(gameDesc, maxRounds, game);
+export default () => runGameEngine(gameDescription, roundsCount, runGame);
