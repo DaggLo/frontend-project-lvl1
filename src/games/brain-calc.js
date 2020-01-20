@@ -19,9 +19,6 @@ const runGame = () => {
   const question = `${operand1} ${operator} ${operand2}`;
   let correctAnswer;
 
-  // This block below provides randomization of an operator.
-  // For example, if operator > 2 - the result operation will be summing.
-  // And so on.
   switch (operator) {
     case '+':
       correctAnswer = (operand1 + operand2).toString();
