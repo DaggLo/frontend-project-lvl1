@@ -18,8 +18,8 @@ const makeDivisor = () => {
   return result;
 };
 
-const makeOperand = (arr) => (
-  Math.floor(getRandomValue(beginValue, endValue) / (arr + 1)) + 1); // 1 - 34
+const makeOperand = (arg) => (
+  Math.floor(getRandomValue(beginValue, endValue) / (arg + 1)) + 1); // 1 - 34
 
 const findGCD = (x, y) => {
   let a = x > y ? x : y;
@@ -38,9 +38,9 @@ const findGCD = (x, y) => {
 const runGame = () => {
   const divisor = makeDivisor();
   const operand1 = makeOperand(divisor) * divisor; // 2 - 100
-  const operand2 = ((arr) => {
-    let result = arr;
-    while (result === arr) {
+  const operand2 = ((arg) => {
+    let result = arg;
+    while (result === arg) {
       result = makeOperand(divisor) * divisor;
     }
     return result;

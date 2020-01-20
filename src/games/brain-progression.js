@@ -12,7 +12,7 @@ const endValue = 10;
 
 const progressionLength = 10;
 
-const makeProgression = (arr) => {
+const makeProgression = (arg) => {
   const startElem = getRandomValue(beginValue, endValue);
   const hiddenElemPos = getRandomValue(beginValue, endValue);
   const diff = getRandomValue(beginValue, endValue);
@@ -22,7 +22,7 @@ const makeProgression = (arr) => {
   let acc = startElem;
   let i = 2;
 
-  while (i <= arr) {
+  while (i <= arg) {
     acc += diff;
     resultStr += i === hiddenElemPos ? ' ..' : ` ${acc}`;
     if (i === hiddenElemPos) {
