@@ -10,10 +10,11 @@ const roundsCount = 3;
 const beginValue = 1;
 const endValue = 10;
 
+const progressionLength = 10;
+
 const makeProgression = () => {
   const startElem = getRandomValue(beginValue, endValue);
   const hiddenElemPos = getRandomValue(beginValue, endValue);
-  const progressionLength = 10;
   const diff = getRandomValue(beginValue, endValue);
 
   let resultStr = hiddenElemPos === 1 ? '..' : startElem.toString();
