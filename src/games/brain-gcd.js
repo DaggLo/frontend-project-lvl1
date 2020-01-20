@@ -47,7 +47,7 @@ const runGame = () => {
   })(operand1);
 
   const question = `${operand1} ${operand2}`;
-  const correctAnswer = `${findGCD(operand1, operand2)}`;
+  const correctAnswer = findGCD(operand1, operand2).toString();
   const data = cons(question, correctAnswer);
 
   return data;

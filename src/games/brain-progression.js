@@ -16,7 +16,7 @@ const makeProgression = () => {
   const progressionLength = 10;
   const diff = getRandomValue(beginValue, endValue);
 
-  let resultStr = hiddenElemPos === 1 ? '..' : `${startElem}`;
+  let resultStr = hiddenElemPos === 1 ? '..' : startElem.toString();
   let resultElem = startElem;
   let acc = startElem;
   let i = 2;
@@ -37,7 +37,7 @@ const runGame = () => {
   const newProgression = makeProgression(beginValue, endValue);
 
   const question = car(newProgression);
-  const correctAnswer = `${cdr(newProgression)}`;
+  const correctAnswer = cdr(newProgression).toString();
   const data = cons(question, correctAnswer);
 
   return data;

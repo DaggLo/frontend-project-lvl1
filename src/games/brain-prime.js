@@ -28,8 +28,8 @@ const isPrime = (num) => {
 const runGame = () => {
   const num = getRandomValue(beginValue, endValue);
 
-  const question = `${num}`;
-  const correctAnswer = `${isPrime(num) ? 'yes' : 'no'}`;
+  const question = num.toString();
+  const correctAnswer = isPrime(num) ? 'yes' : 'no';
   const data = cons(question, correctAnswer);
 
   return data;

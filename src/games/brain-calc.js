@@ -24,15 +24,15 @@ const runGame = () => {
   // And so on.
   switch (operator) {
     case '+':
-      correctAnswer = `${operand1 + operand2}`;
+      correctAnswer = (operand1 + operand2).toString();
       break;
 
     case '-':
-      correctAnswer = `${operand1 - operand2}`;
+      correctAnswer = (operand1 - operand2).toString();
       break;
 
     case '*':
-      correctAnswer = `${operand1 * operand2}`;
+      correctAnswer = (operand1 * operand2).toString();
       break;
 
     default:
