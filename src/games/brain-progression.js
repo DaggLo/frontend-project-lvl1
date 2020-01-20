@@ -10,7 +10,7 @@ const roundsCount = 3;
 const beginValue = 1;
 const endValue = 10;
 
-const progression = () => {
+const makeProgression = () => {
   const startElem = getRandomValue(beginValue, endValue);
   const hiddenElemPos = getRandomValue(beginValue, endValue);
   const progressionLength = 10;
@@ -34,10 +34,10 @@ const progression = () => {
 };
 
 const runGame = () => {
-  const newProgr = progression(beginValue, endValue);
+  const newProgression = makeProgression(beginValue, endValue);
 
-  const question = car(newProgr);
-  const correctAnswer = `${cdr(newProgr)}`;
+  const question = car(newProgression);
+  const correctAnswer = `${cdr(newProgression)}`;
   const data = cons(question, correctAnswer);
 
   return data;

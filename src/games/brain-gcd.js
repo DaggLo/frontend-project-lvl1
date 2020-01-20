@@ -10,7 +10,7 @@ const roundsCount = 3;
 const beginValue = 1;
 const endValue = 100;
 
-const divisorMaker = () => {
+const makeDivisor = () => {
   let result = 0;
   while (result < 2) {
     result = Math.floor(getRandomValue(beginValue, endValue) / 2); // 2 - 50
@@ -18,10 +18,10 @@ const divisorMaker = () => {
   return result;
 };
 
-const operandMaker = (div) => (
+const makeOperand = (div) => (
   Math.floor(getRandomValue(beginValue, endValue) / (div + 1)) + 1); // 1 - 34
 
-const gcd = (x, y) => {
+const findGCD = (x, y) => {
   let a = x > y ? x : y;
   let b = x < y ? x : y;
 
@@ -36,18 +36,18 @@ const gcd = (x, y) => {
 };
 
 const runGame = () => {
-  const divisor = divisorMaker();
-  const operand1 = operandMaker(divisor) * divisor; // 2 - 100
+  const divisor = makeDivisor();
+  const operand1 = makeOperand(divisor) * divisor; // 2 - 100
   const operand2 = ((arr) => {
     let result = arr;
     while (result === arr) {
-      result = operandMaker(divisor) * divisor;
+      result = makeOperand(divisor) * divisor;
     }
     return result;
   })(operand1);
 
   const question = `${operand1} ${operand2}`;
-  const correctAnswer = `${gcd(operand1, operand2)}`;
+  const correctAnswer = `${findGCD(operand1, operand2)}`;
   const data = cons(question, correctAnswer);
 
   return data;
