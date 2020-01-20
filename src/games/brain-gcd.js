@@ -18,8 +18,8 @@ const makeDivisor = () => {
   return result;
 };
 
-const makeOperand = (div) => (
-  Math.floor(getRandomValue(beginValue, endValue) / (div + 1)) + 1); // 1 - 34
+const makeOperand = (arr) => (
+  Math.floor(getRandomValue(beginValue, endValue) / (arr + 1)) + 1); // 1 - 34
 
 const findGCD = (x, y) => {
   let a = x > y ? x : y;
