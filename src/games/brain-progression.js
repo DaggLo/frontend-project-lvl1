@@ -12,7 +12,7 @@ const endValue = 10;
 
 const progressionLength = 10;
 
-const makeProgression = () => {
+const makeProgression = (arr) => {
   const startElem = getRandomValue(beginValue, endValue);
   const hiddenElemPos = getRandomValue(beginValue, endValue);
   const diff = getRandomValue(beginValue, endValue);
@@ -22,7 +22,7 @@ const makeProgression = () => {
   let acc = startElem;
   let i = 2;
 
-  while (i <= progressionLength) {
+  while (i <= arr) {
     acc += diff;
     resultStr += i === hiddenElemPos ? ' ..' : ` ${acc}`;
     if (i === hiddenElemPos) {
@@ -35,7 +35,7 @@ const makeProgression = () => {
 };
 
 const runGame = () => {
-  const newProgression = makeProgression(beginValue, endValue);
+  const newProgression = makeProgression(progressionLength);
 
   const question = car(newProgression);
   const correctAnswer = cdr(newProgression).toString();
