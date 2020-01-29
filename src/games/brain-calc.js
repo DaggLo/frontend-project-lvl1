@@ -7,16 +7,16 @@ const gameDescription = 'What is the result of the expression?';
 const roundsCount = 3;
 
 // These values are for the getRandomValue funcntion.
-const beginValue = 0;
-const endValue = 100;
+const operandBeginValue = 0;
+const operandEndValue = 100;
 
 const operations = '+-*';
 const operatorStartIndex = 0;
 const operatorEndIndex = operations.length - 1;
 
 const runGame = () => {
-  const operand1 = getRandomValue(beginValue, endValue);
-  const operand2 = getRandomValue(beginValue, endValue);
+  const operand1 = getRandomValue(operandBeginValue, operandEndValue);
+  const operand2 = getRandomValue(operandBeginValue, operandEndValue);
   const operator = operations[getRandomValue(operatorStartIndex, operatorEndIndex)];
 
   const question = `${operand1} ${operator} ${operand2}`;
