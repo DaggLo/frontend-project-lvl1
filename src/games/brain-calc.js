@@ -6,17 +6,16 @@ import runGameEngine from '../engine';
 const gameDescription = 'What is the result of the expression?';
 const roundsCount = 3;
 
-// These values are for the getRandomValue funcntion.
-const operandBeginValue = 0;
-const operandEndValue = 100;
+const operandMinValue = 0;
+const operandMaxValue = 100;
 
 const operations = '+-*';
 const operatorStartIndex = 0;
 const operatorEndIndex = operations.length - 1;
 
-const runGame = () => {
-  const operand1 = getRandomValue(operandBeginValue, operandEndValue);
-  const operand2 = getRandomValue(operandBeginValue, operandEndValue);
+const prepareGameData = () => {
+  const operand1 = getRandomValue(operandMinValue, operandMaxValue);
+  const operand2 = getRandomValue(operandMinValue, operandMaxValue);
   const operator = operations[getRandomValue(operatorStartIndex, operatorEndIndex)];
 
   const question = `${operand1} ${operator} ${operand2}`;
@@ -43,4 +42,4 @@ const runGame = () => {
   return data;
 };
 
-export default () => runGameEngine(gameDescription, roundsCount, runGame);
+export default () => runGameEngine(gameDescription, roundsCount, prepareGameData);
