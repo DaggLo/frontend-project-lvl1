@@ -8,13 +8,16 @@ const roundsCount = 3;
 
 // These values are for the getRandomValue funcntion.
 const beginValue = 0;
-const endValue = 100; // 0 - 99
+const endValue = 100;
+
 const operations = '+-*';
+const operatorStartIndex = 0;
+const operatorEndIndex = operations.length - 1;
 
 const runGame = () => {
   const operand1 = getRandomValue(beginValue, endValue);
   const operand2 = getRandomValue(beginValue, endValue);
-  const operator = operations[Math.floor(getRandomValue(beginValue, endValue) / 34)]; // 0 - 2
+  const operator = operations[getRandomValue(operatorStartIndex, operatorEndIndex)];
 
   const question = `${operand1} ${operator} ${operand2}`;
   let correctAnswer;
