@@ -6,9 +6,9 @@ import runGameEngine from '../engine';
 const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 const roundsCount = 3;
 
-// These values are for the getRandomValue funcntion.
-const beginValue = 1;
-const endValue = 1000;
+// The min and max values to limit the generated nunber that we checkout.
+const minValue = 1;
+const maxValue = 1000;
 
 const isPrime = (num) => {
   if (num < 2) {
@@ -25,8 +25,8 @@ const isPrime = (num) => {
   return true;
 };
 
-const runGame = () => {
-  const num = getRandomValue(beginValue, endValue);
+const prepareGameData = () => {
+  const num = getRandomValue(minValue, maxValue);
 
   const question = num.toString();
   const correctAnswer = isPrime(num) ? 'yes' : 'no';
@@ -35,4 +35,4 @@ const runGame = () => {
   return data;
 };
 
-export default () => runGameEngine(gameDescription, roundsCount, runGame);
+export default () => runGameEngine(gameDescription, roundsCount, prepareGameData);
