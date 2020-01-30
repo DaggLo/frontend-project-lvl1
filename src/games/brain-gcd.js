@@ -6,27 +6,33 @@ import runGameEngine from '../engine';
 const gameDescription = 'Find the greatest common divisor of given numbers.';
 const roundsCount = 3;
 
-// These values are for the getRandomValue funcntion.
-const beginValue = 1;
-const endValue = 100;
+// Actual operandMinValue wouldn't be smaller than actual gcd generated value
+// because of normallization inside of the generateOperand function.
+const operandMinValue = 2;
+const operandMaxValue = 100;
 
-const makeDivisor = () => {
-  let result = 0;
-  while (result < 2) {
-    result = Math.floor(getRandomValue(beginValue, endValue) / 2); // 2 - 50
-  }
-  return result;
+const gcdMinValue = 2;
+const gcdMaxValue = 50;
+
+const generateGCD = (min, max) => getRandomValue(min, max);
+
+const generateOperand = (min, max, gcd) => {
+  const normallizedMin = min < gcd ? gcd : min;
+  const preOperand = getRandomValue(normallizedMin, max);
+  const operand = (Math.floor(preOperand / gcd)) * gcd;
+  return operand;
 };
 
-const makeOperand = (arg) => (
-  (Math.floor(getRandomValue(beginValue, endValue) / (arg + 1)) + 1) * arg); // 2 - 100
-
-const makeAnotherOperand = (arg1, arg2) => {
-  let result = makeOperand(arg1);
-  while (result === arg2) {
-    result = makeOperand(arg1);
+const generateAnotherOperand = (min, max, gcd, existentOperand) => {
+  if (existentOperand === gcd) {
+    return generateOperand(gcd * 2, max, gcd);
   }
-  return result;
+
+  let newOperand = generateOperand(min, max, gcd);
+  while (newOperand === existentOperand) {
+    newOperand = generateOperand(min, max, gcd);
+  }
+  return newOperand;
 };
 
 const findGCD = (x, y) => {
@@ -43,10 +49,10 @@ const findGCD = (x, y) => {
   return result;
 };
 
-const runGame = () => {
-  const divisor = makeDivisor();
-  const operand1 = makeOperand(divisor);
-  const operand2 = makeAnotherOperand(divisor, operand1);
+const prepareGameData = () => {
+  const divisor = generateGCD(gcdMinValue, gcdMaxValue);
+  const operand1 = generateOperand(operandMinValue, operandMaxValue, divisor);
+  const operand2 = generateAnotherOperand(operandMinValue, operandMaxValue, divisor, operand1);
 
   const question = `${operand1} ${operand2}`;
   const correctAnswer = findGCD(operand1, operand2).toString();
@@ -55,4 +61,4 @@ const runGame = () => {
   return data;
 };
 
-export default () => runGameEngine(gameDescription, roundsCount, runGame);
+export default () => runGameEngine(gameDescription, roundsCount, prepareGameData);
