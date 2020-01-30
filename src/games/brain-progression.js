@@ -26,7 +26,6 @@ const generateProgressionData = (arg) => {
     if (currentElementPosition === hiddenElementPosition) {
       hiddenElement = currentElement;
       progression += ' ..';
-
     } else {
       progression += ` ${currentElement}`;
     }
