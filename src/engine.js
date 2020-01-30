@@ -1,11 +1,10 @@
 import readlineSync from 'readline-sync';
 import { car, cdr } from '@hexlet/pairs';
 
-export default (msg, rounds = 3, f) => {
-  console.log(`\nWelcome to the Brain Games!\n${msg}`);
+export default (gameDescription, roundsCount = 3, prepareGameData) => {
+  console.log(`\nWelcome to the Brain Games!\n${gameDescription}`);
 
   const userName = readlineSync.question('\nMay I have your name? ');
-  const roundsCount = rounds;
 
   console.log(`Hello, ${userName}!\n`);
 
@@ -15,10 +14,13 @@ export default (msg, rounds = 3, f) => {
       return;
     }
 
-    const gameData = f();
+    const gameData = prepareGameData();
     const question = car(gameData);
     const correctAnswer = cdr(gameData);
-    const userAnswer = readlineSync.question(`Question: ${question}\nYour answer: `);
+
+    console.log(`Question: ${question}`);
+
+    const userAnswer = readlineSync.question('Your answer: ');
 
     if (userAnswer.toLowerCase() !== correctAnswer) {
       console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}.`);
