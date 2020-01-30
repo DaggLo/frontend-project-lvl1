@@ -6,42 +6,46 @@ import runGameEngine from '../engine';
 const gameDescription = 'What number is missing in the progression?';
 const roundsCount = 3;
 
-// These values are for the getRandomValue funcntion.
-const beginValue = 1;
-const endValue = 10;
-
+// The min and max value of a progression element.
+const minValue = 1;
+const maxValue = 10;
 const progressionLength = 10;
 
-const makeProgression = (arg) => {
-  const startElem = getRandomValue(beginValue, endValue);
-  const hiddenElemPos = getRandomValue(beginValue, endValue);
-  const diff = getRandomValue(beginValue, endValue);
+const generateProgressionData = (arg) => {
+  const startElement = getRandomValue(minValue, maxValue);
+  const hiddenElementPosition = getRandomValue(minValue, maxValue);
+  const elementsDiff = getRandomValue(minValue, maxValue);
 
-  let resultStr = hiddenElemPos === 1 ? '..' : startElem.toString();
-  let resultElem = startElem;
-  let acc = startElem;
-  let i = 2;
+  let progression = hiddenElementPosition === 1 ? '..' : startElement.toString();
 
-  while (i <= arg) {
-    acc += diff;
-    resultStr += i === hiddenElemPos ? ' ..' : ` ${acc}`;
-    if (i === hiddenElemPos) {
-      resultElem = acc;
+  let hiddenElement = startElement;
+  let currentElement = startElement + elementsDiff;
+  let currentElementPosition = 2;
+
+  while (currentElementPosition <= arg) {
+    if (currentElementPosition === hiddenElementPosition) {
+      hiddenElement = currentElement;
+      progression += ' ..';
+
+    } else {
+      progression += ` ${currentElement}`;
     }
-    i += 1;
+
+    currentElement += elementsDiff;
+    currentElementPosition += 1;
   }
 
-  return cons(resultStr, resultElem);
+  return cons(progression, hiddenElement);
 };
 
-const runGame = () => {
-  const newProgression = makeProgression(progressionLength);
+const prepareGameData = () => {
+  const progressionData = generateProgressionData(progressionLength);
 
-  const question = car(newProgression);
-  const correctAnswer = cdr(newProgression).toString();
+  const question = car(progressionData);
+  const correctAnswer = cdr(progressionData).toString();
   const data = cons(question, correctAnswer);
 
   return data;
 };
 
-export default () => runGameEngine(gameDescription, roundsCount, runGame);
+export default () => runGameEngine(gameDescription, roundsCount, prepareGameData);
