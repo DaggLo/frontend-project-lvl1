@@ -30,8 +30,8 @@ const generateProgression = (startElement, hiddenElementPosition, diff) => {
 
 const prepareGameData = () => {
   const startElement = getRandomValue(minValue, maxValue);
-  const hiddenElementPosition = getRandomValue(minValue, maxValue);
   const diff = getRandomValue(minValue, maxValue);
+  const hiddenElementPosition = getRandomValue(0, progressionLength - 1);
 
   const question = generateProgression(startElement, hiddenElementPosition, diff);
   const correctAnswer = (startElement + diff * hiddenElementPosition).toString();
