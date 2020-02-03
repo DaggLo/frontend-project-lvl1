@@ -6,7 +6,8 @@ import runGameEngine from '../engine';
 const gameDescription = 'What number is missing in the progression?';
 const roundsCount = 3;
 
-// The min and max value of a progression element.
+// The min and the max value of progression elements
+// and also of their diff.
 const minValue = 1;
 const maxValue = 10;
 const progressionLength = 10;
