@@ -6,22 +6,22 @@ import runGameEngine from '../engine';
 const gameDescription = 'What number is missing in the progression?';
 const roundsCount = 3;
 
-// The min and the max value of progression elements
+// The min and the max value of progression values
 // and also of their diff.
 const minValue = 1;
 const maxValue = 10;
 const progressionLength = 10;
 
-const generateProgression = (startElement, hiddenElementPosition, diff) => {
+const generateProgression = (startValue, hiddenValuePosition, diff) => {
   let progression = '';
 
   for (let i = 0; i < progressionLength; i += 1) {
-    const currentElement = startElement + diff * i;
+    const currentValue = startValue + diff * i;
 
-    if (i === hiddenElementPosition) {
+    if (i === hiddenValuePosition) {
       progression = `${progression}.. `;
     } else {
-      progression = `${progression}${currentElement} `;
+      progression = `${progression}${currentValue} `;
     }
   }
 
@@ -29,12 +29,12 @@ const generateProgression = (startElement, hiddenElementPosition, diff) => {
 };
 
 const prepareGameData = () => {
-  const startElement = getRandomValue(minValue, maxValue);
+  const startValue = getRandomValue(minValue, maxValue);
   const diff = getRandomValue(minValue, maxValue);
-  const hiddenElementPosition = getRandomValue(0, progressionLength - 1);
+  const hiddenValuePosition = getRandomValue(0, progressionLength - 1);
 
-  const question = generateProgression(startElement, hiddenElementPosition, diff);
-  const correctAnswer = (startElement + diff * hiddenElementPosition).toString();
+  const question = generateProgression(startValue, hiddenValuePosition, diff);
+  const correctAnswer = (startValue + diff * hiddenValuePosition).toString();
   const data = cons(question, correctAnswer);
 
   return data;
