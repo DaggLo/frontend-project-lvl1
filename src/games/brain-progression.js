@@ -1,4 +1,4 @@
-import { cons, car, cdr } from '@hexlet/pairs';
+import { cons } from '@hexlet/pairs';
 
 import getRandomValue from '../utils';
 import runGameEngine from '../engine';
@@ -11,26 +11,20 @@ const minValue = 1;
 const maxValue = 10;
 const progressionLength = 10;
 
-const generateProgressionData = (startElement, hiddenElementPosition, diff) => {
-  let progression = hiddenElementPosition === 1 ? '..' : startElement.toString();
+const generateProgression = (startElement, hiddenElementPosition, diff) => {
+  let progression = '';
 
-  let hiddenElement = startElement;
-  let currentElement = startElement + diff;
-  let currentElementPosition = 2;
+  for (let i = 0; i < progressionLength; i += 1) {
+    const currentElement = startElement + diff * i;
 
-  while (currentElementPosition <= progressionLength) {
-    if (currentElementPosition === hiddenElementPosition) {
-      hiddenElement = currentElement;
-      progression += ' ..';
+    if (i === hiddenElementPosition) {
+      progression = `${progression}.. `;
     } else {
-      progression += ` ${currentElement}`;
+      progression = `${progression}${currentElement} `;
     }
-
-    currentElement += diff;
-    currentElementPosition += 1;
   }
 
-  return cons(progression, hiddenElement);
+  return progression;
 };
 
 const prepareGameData = () => {
@@ -38,11 +32,8 @@ const prepareGameData = () => {
   const hiddenElementPosition = getRandomValue(minValue, maxValue);
   const diff = getRandomValue(minValue, maxValue);
 
-  const progressionData = generateProgressionData(startElement,
-    hiddenElementPosition, diff);
-
-  const question = car(progressionData);
-  const correctAnswer = cdr(progressionData).toString();
+  const question = generateProgression(startElement, hiddenElementPosition, diff);
+  const correctAnswer = (startElement + diff * hiddenElementPosition).toString();
   const data = cons(question, correctAnswer);
 
   return data;
