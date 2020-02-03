@@ -11,11 +11,11 @@ const minValue = 1;
 const maxValue = 10;
 const progressionLength = 10;
 
-const generateProgressionData = (startElement, hiddenElementPosition, elementsDiff) => {
+const generateProgressionData = (startElement, hiddenElementPosition, diff) => {
   let progression = hiddenElementPosition === 1 ? '..' : startElement.toString();
 
   let hiddenElement = startElement;
-  let currentElement = startElement + elementsDiff;
+  let currentElement = startElement + diff;
   let currentElementPosition = 2;
 
   while (currentElementPosition <= progressionLength) {
@@ -26,7 +26,7 @@ const generateProgressionData = (startElement, hiddenElementPosition, elementsDi
       progression += ` ${currentElement}`;
     }
 
-    currentElement += elementsDiff;
+    currentElement += diff;
     currentElementPosition += 1;
   }
 
@@ -36,10 +36,10 @@ const generateProgressionData = (startElement, hiddenElementPosition, elementsDi
 const prepareGameData = () => {
   const startElement = getRandomValue(minValue, maxValue);
   const hiddenElementPosition = getRandomValue(minValue, maxValue);
-  const elementsDiff = getRandomValue(minValue, maxValue);
+  const diff = getRandomValue(minValue, maxValue);
 
   const progressionData = generateProgressionData(startElement,
-    hiddenElementPosition, elementsDiff);
+    hiddenElementPosition, diff);
 
   const question = car(progressionData);
   const correctAnswer = cdr(progressionData).toString();
