@@ -26,11 +26,9 @@ const isPrime = (num) => {
 };
 
 const prepareGameData = () => {
-  const num = getRandomValue(minValue, maxValue);
-
-  const question = num.toString();
-  const correctAnswer = isPrime(num) ? 'yes' : 'no';
-  const data = cons(question, correctAnswer);
+  const question = getRandomValue(minValue, maxValue);
+  const correctAnswer = isPrime(question) ? 'yes' : 'no';
+  const data = cons(question.toString(), correctAnswer);
 
   return data;
 };
