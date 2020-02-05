@@ -25,7 +25,7 @@ const generateProgression = (startValue, hiddenValuePosition, diff) => {
     }
   }
 
-  return progression;
+  return progression.trim();
 };
 
 const prepareGameData = () => {
