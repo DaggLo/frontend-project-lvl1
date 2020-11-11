@@ -1,6 +1,6 @@
 # Brain Games (practice package).
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/7d2028425a0f98d4dd15/maintainability)](https://codeclimate.com/github/DaggLo/frontend-project-lvl1/maintainability)
 [![Build Status](https://travis-ci.org/DaggLo/frontend-project-lvl1.svg?branch=master)](https://travis-ci.org/DaggLo/frontend-project-lvl1)
 
 This is my first practice project at the [Hexlet.io front-end JS course](https://ru.hexlet.io/professions/frontend/projects/44).
